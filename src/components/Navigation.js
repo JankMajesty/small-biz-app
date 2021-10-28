@@ -8,21 +8,19 @@ const Navigation = () => {
     return (
         <AppBar position="relative">
             <Toolbar>
-                <IconButton color="inherit">
-                    <MenuIcon />
-                </IconButton>
                 <Typography variant="h6" style={{ flexGrow: "1" }}>
-                    FakeCars.com
+                    Austin Small Business
                 </Typography>
                 <ul className="nav-list">
                     <li className="nav-list-item">
-                        <Link to="/">Home</Link>
+                        <Link to="/listings">Listings</Link>
                     </li>
-                    <li className="nav-list-item">
-                        <Link to="/about">About</Link>
-                    </li>
-                    <li className="nav-list-item">
-                        <Link to="/dashboard">Dashboard</Link>
+                    <li className="nav-list-item"
+                        onClick={() => {
+                            document.cookie = "loggedIn="
+                            window.location.replace("/login")
+                        }}>
+                        Logout
                     </li>
                 </ul>
             </Toolbar>
