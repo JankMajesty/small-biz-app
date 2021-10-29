@@ -1,23 +1,22 @@
 import React from 'react'
 import { Container, Paper, Chip } from '@material-ui/core';
+import Map from './Map';
 
 
 const Listing = (props) => {
     const id = props.match.params.id
   
-    const listing = props.listings.find(c => c.id === id)
+    const listing = props.listings.find(c => c.id == id)
 
     return (
-        <Container maxWidth="sm" className="car-container">
-            <Paper className="car-paper">
+        <div className="container">
                 <h2>{listing.name}</h2>
-                {
-                    Object.keys(listing).map((key, idx) => {
-                        return <Chip label={`${key}: ${listing[key]}`}></Chip>
-                    })
-                }
-            </Paper>
-        </Container>
+                <h3>{listing.address}</h3>
+                <h3>{listing.hours}</h3>
+                <p>{listing.description}</p>  
+  
+        <Map className="map" lat={listing.lat} lng={listing.lng}/>
+     </div>
     )
 }
 

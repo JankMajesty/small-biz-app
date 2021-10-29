@@ -1,4 +1,5 @@
 import React from 'react'
+import cookie from 'cookie'
 import {
     Container,
     Table,
@@ -9,15 +10,14 @@ import {
 } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete'
 import AddListing from '../containers/AddListing'
+import { Link } from 'react-router-dom'
+import {checkAuth } from '../Router'
 // import AddListing from './AddListing'
  
 const Listing = (props) => {
-    return (
+    return checkAuth() ? (
         <Container maxWidth="lg" className="car-container">
             <h4>Welcome, {props.user.username}</h4>
-            <div className="flex-container">
-                <AddListing carTotal={props.listings.length} />
-            </div>
             <Table>
                 <TableHead>
                     <TableRow>
@@ -32,18 +32,42 @@ const Listing = (props) => {
                 {props.listings.map((listing, idx) => (
                     <TableRow key={listing.id}>
                         <TableCell component="th" scope="row">
-                            {listing.name}
+                            <Link to={`/listing/${listing.id}`}>{listing.name}</Link>
                         </TableCell>
-                        <TableCell>{listing["name"]}</TableCell>
-                        <TableCell>{listing["mpg"]}</TableCell>
-                        <TableCell>{listing["cylinders"]}</TableCell>
-                        <TableCell>{listing["horsepower"]}</TableCell>
+                        <TableCell>{listing["description"]}</TableCell>
+                        <TableCell>{listing["hours"]}</TableCell>
+                        <TableCell>{listing["address"]}</TableCell>
                         <TableCell>
                             <DeleteIcon
             
                                 onClick={() => props.removeListing(idx)} 
                                 className="icon text-red" />
                         </TableCell>
+                    </TableRow>
+                ))}
+                </TableBody>
+            </Table>
+        </Container>
+    ) : (
+        <Container maxWidth="lg" className="car-container">
+            <Table>
+                <TableHead>
+                    <TableRow>
+                        <TableCell>Name</TableCell>
+                        <TableCell>Description</TableCell>
+                        <TableCell>Hours</TableCell>
+                        <TableCell>Address</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                {props.listings.map((listing, idx) => (
+                    <TableRow key={listing.id}>
+                        <TableCell component="th" scope="row">
+                            <Link to={`/listing/${listing.id}`}>{listing.name}</Link>
+                        </TableCell>
+                        <TableCell>{listing["description"]}</TableCell>
+                        <TableCell>{listing["hours"]}</TableCell>
+                        <TableCell>{listing["address"]}</TableCell>
                     </TableRow>
                 ))}
                 </TableBody>

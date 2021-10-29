@@ -9,7 +9,8 @@ import {
 class App extends Component {
   state = {
     username: '',
-    password: ''
+    password: '',
+    // redirectHome: false,
   }
 
   handleTextChange = (e) => {
@@ -20,17 +21,18 @@ class App extends Component {
 
   login = (e) => {
     e.preventDefault()
-    // set cookie here
-    document.cookie = "loggedIn=true;max-age=60*1000"
-    // set loggedIn = true and max-age = 60*1000 (one minute)
+    document.cookie = "loggedIn=true"
     window.location.replace("/")
   }
 
   render() {
+    if (this.state.redirectHome) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className="App">
         <Container maxWidth="sm">
-          <form className="login-form" onSubmit={this.login}>
+          <form className="container" onSubmit={this.login}>
             <TextField
               required
               onChange={this.handleTextChange}
