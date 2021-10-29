@@ -55,8 +55,6 @@ const AddListing = (props) => {
              <TextField value={listing.address} required="true" id="address" onChange={handleTextChange} placeholder="Address" />
              <TextField value={listing.hours} required="true" id="hours" onChange={handleTextChange} placeholder="Hours" />
              <TextField value={listing.description} required="true" id="description" onChange={handleTextChange} placeholder="Description" />
-             <TextField value={listing.lat} required="true" id="lat" onChange={handleTextChange} placeholder="Latitude" />
-             <TextField value={listing.lng} required="true" id="lng" onChange={handleTextChange} placeholder="Longitude" />
                <div className="margin-top-sm button-wide">
              <Box mt={4}>   
              <Button style={{width: '400px'}}
