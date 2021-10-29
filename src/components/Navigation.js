@@ -1,11 +1,8 @@
 import React from 'react'
-import cookie from "cookie";
 import { AppBar, Toolbar, IconButton, 
     Typography } from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu'
 import { Link } from 'react-router-dom'
 import AddListing from '../containers/AddListing'
-import { useLocation } from "react-router-dom"
 import { checkAuth } from '../Router';
 
 const Navigation = () => {

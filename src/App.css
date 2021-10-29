@@ -93,3 +93,7 @@ ul {
 .flex-child {
   flex: 1;
 }
+
+.map-margin {
+  margin-right: 10px;
+}

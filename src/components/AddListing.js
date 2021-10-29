@@ -1,112 +1,11 @@
-import React, { useState, useEffect, Component, Fragment } from 'react'
+import React, { useState } from 'react'
 import {
     Button,
     TextField,
-    Dialog,
-    DialogContent,
-    DialogTitle,
     Box
 } from '@material-ui/core'
-import { Link } from 'react-router-dom'
-import { Redirect } from 'react-router'
 import GoogleMapReact from 'google-map-react'
-import Map from './Map'
 
-// class AddListing extends Component {
-//     state = {
-//         open: false,
-//         name: '',
-//         description: '',
-//         hours: '',
-//         address: '',
-//     }
-
-//     toggleDialog = () => this.setState({ open: !this.state.open })
-
-//     handleTextChange = (e) => {
-//         const newState = { ...this.state }
-//         newState[e.target.id] = e.target.value
-//         this.setState(newState)
-//     }
-
-//     handleSubmit = (e) => {
-//         e.preventDefault()
-//         const payload = { ...this.state }
-//         delete payload.open
-//         console.log("THE CAR", payload)
-//         // add this.props.addCar function here
-//         this.props.AddListing(payload)
-//         // also add this.setState to close the dialog
-//         this.setState({open: false})
-//     }
-
-//     componentDidUpdate = (prevProps, prevState) => {
-//         if (prevState.open !== this.state.open) {
-//             this.setState({
-//                 name: '',
-//                 description: '',
-//                 hours: '',
-//                 address: ''
-//             })
-//         }
-//     }
-
-//     render() {
-//         return (
-//             <Fragment>
-//                 <div style={{ textAlign: 'center' }}>
-//                     <h1>Add Listing:</h1>
-//                     <Button
-//                         variant="contained"
-//                         className="add-car"
-//                         onClick={this.toggleDialog}
-//                     >
-//                         Add Listing
-//                     </Button>
-//                 </div>
-//                 <div>
-//                     <Dialog open={this.state.open} onClose={this.toggleDialog} >
-//                         <DialogTitle>Add New Listing</DialogTitle>
-//                         <DialogContent>
-//                             <form 
-//                                 onSubmit={this.handleSubmit}
-//                                 style={{ display: 'flex', flexDirection: 'column', width: '350px' }}>
-//                                 <TextField 
-//                                     id="name" 
-//                                     placeholder="Name" 
-//                                     value={this.state.name} 
-//                                     onChange={this.handleTextChange} 
-//                                     required />
-//                                 <TextField 
-//                                     id="mpg" 
-//                                     placeholder="Miles per gallon" 
-//                                     value={this.state.mpg} 
-//                                     onChange={this.handleTextChange} 
-//                                     required />
-//                                 <TextField 
-//                                     id="cylinders" 
-//                                     placeholder="Cylinders" 
-//                                     value={this.state.cylinders} 
-//                                     onChange={this.handleTextChange} 
-//                                     required />
-//                                 <TextField 
-//                                     id="horsepower" 
-//                                     placeholder="Horsepower" 
-//                                     value={this.state.horsepower} 
-//                                     onChange={this.handleTextChange} 
-//                                     required />
-//                                 <br />
-//                                 <Button variant="contained" color="primary" type="submit">Submit</Button>
-//                             </form>
-//                         </DialogContent>
-//                     </Dialog>
-//                 </div>
-//             </Fragment>
-//         )
-//     }
-// }
-
-// export default AddListing
 
 const AddListing = (props) => {
     console.log(props)
@@ -171,7 +70,7 @@ const AddListing = (props) => {
              </div>
            </form>
            </div>
-           <div className='flex-child' style={{ height: '50vh', width: '50%' }} >
+           <div className='flex-child' style={{ height: '50vh', width: '50%' , marginRight: '20px'}} >
            <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyDjULikPHmrPzrmZbtyphQaevW2iqFUWPU'}}
           defaultCenter={{

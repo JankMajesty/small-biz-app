@@ -10,7 +10,6 @@ class App extends Component {
   state = {
     username: '',
     password: '',
-    // redirectHome: false,
   }
 
   handleTextChange = (e) => {
